@@ -1228,3 +1228,70 @@ header ul a:hover{
 
 
 
+
+
+
+/* 🌌 Fully Transparent Floating Popup */
+.popup-msg {
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  backdrop-filter: none;              /* ❌ remove blur */
+  -webkit-backdrop-filter: none;      /* ❌ remove blur for Safari */
+  background: transparent;            /* ✅ no background color */
+  color: #fff;                        /* white text for visibility */
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2); /* faint outline (optional) */
+  box-shadow: none;                   /* ✅ remove shadow to stay clean */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.35s ease;
+  z-index: 9999;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  text-shadow: 0 0 6px rgba(0,0,0,0.6); /* makes text readable over bright backgrounds */
+  max-width: 300px;
+  text-align: center;
+}
+
+.popup-msg.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✅ Success glow */
+.popup-msg.success {
+  border-left: 3px solid rgba(0, 255, 150, 0.8);
+  text-shadow: 0 0 10px rgba(0, 255, 150, 0.6);
+}
+
+/* ❌ Error glow */
+.popup-msg.error {
+  border-left: 3px solid rgba(255, 70, 70, 0.8);
+  text-shadow: 0 0 10px rgba(255, 70, 70, 0.6);
+}
+
+@keyframes popupFade {
+  0% {
+    opacity: 0;
+    transform: translateY(25px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popup-msg.show {
+  animation: popupFade 0.35s ease forwards;
+}
+
+
+
+
+
+
+
+
